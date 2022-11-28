@@ -1,0 +1,38 @@
+<html>
+<title>Live Stream</title>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8  offset-lg-2">
+				<h3 class="mt-5">Live Streaming</h3>
+				<img src="{{ url_for('video_feed') }}" width="100%">
+			</div>
+		</div>
+	</div>
+<form action="/controlit" method="post">
+<table style = "width:100%">
+	<tr>
+		<td></td>
+		<td>
+		 <input type="submit" value="Foward" name ="buttonPress" style = "height:150px;width:150px;font-weight:bold;font-size: 180%"></input>
+		<td></td>
+		
+
+	</tr>
+	<tr>
+		<td>
+		 <input type="submit" value="Left" name ="buttonPress" style = "height:150px;width:150px;font-weight:bold;font-size: 200%"></input>
+		</td>
+		<td>
+		 <input type="submit" value="Back" name ="buttonPress" style = "height:150px;width:150px;font-weight:bold;font-size: 200%"></input>
+		</td>
+		<td>
+		 <input type="submit" value="Right" name ="buttonPress" style = "height:150px;width:150px;font-weight:bold;font-size: 200%"></input>
+		
+		</td>
+	</tr>
+
+</table>
+</form>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Robot Image Server</title>
+    </head>
+    <body>
+        <h1>Robot Image Server</h1>
+        <img src="{{ url_for('display') }}">
+	<form action="/controlit" method="post">
+<table style = "width:100%">
+	<tr>
+		<td></td>
+		<td>
+		 <input type="submit" value="Forward" name ="buttonPress" style = "height:150px;width:150px;font-weight:bold;font-size: 180%"></input>
+		<td></td>
+		
+
+	</tr>
+	<tr>
+		<td>
+		 <input type="submit" value="Left" name ="buttonPress" style = "height:150px;width:150px;font-weight:bold;font-size: 200%"></input>
+		</td>
+		<td>
+		 <input type="submit" value="Stop" name ="buttonPress" style = "height:150px;width:150px;font-weight:bold;font-size: 200%"></input>
+		</td>
+		<td>
+		 <input type="submit" value="Right" name ="buttonPress" style = "height:150px;width:150px;font-weight:bold;font-size: 200%"></input>
+		
+		</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>
+		 <input type="submit" value="Back" name ="buttonPress" style = "height:150px;width:150px;font-weight:bold;font-size: 180%"></input>
+		<td></td>
+
+</table>
+</form>
+    </body>
+</html>

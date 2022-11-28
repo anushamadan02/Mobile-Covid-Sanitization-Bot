@@ -1,0 +1,454 @@
+<?xml version="1.0" ?>
+<robot name="covid_bot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find covid_bot_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find covid_bot_description)/urdf/covid_bot.gazebo" />
+<link name="base_footprint"/>
+<link name="odom"/>
+<joint name="base_to_odom" type="fixed">
+  <parent link="odom"/>
+  <child link="base_footprint"/>
+  <origin xyz="0.0 0.0 0.010" rpy="0 0 0"/>
+</joint>
+<joint name="base_joint" type="fixed">
+  <parent link="base_footprint"/>
+  <child link="base_link"/>
+  <origin xyz="0.0 0.0 0.010" rpy="0 0 0"/>
+</joint>
+
+<link name="base_link">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.06270886040398663 -0.04887667759467619 0.10537417294647568"/>
+    <mass value="1.4998576872414455"/>
+    <inertia ixx="0.002027" ixy="0.0" ixz="0.0" iyy="0.002073" iyz="-4.4e-05" izz="0.000395"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://covid_bot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="gold"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://covid_bot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="imu_link"/>
+
+<joint name="imu_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="imu_link"/>
+  <origin xyz="0.0 0.0 0.00" rpy="0 0 0"/>
+</joint>
+
+<link name="Rim3">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-1.395886702199034e-07 0.004690454966509119 -4.2844414178955237e-07"/>
+    <mass value="1.659121848874848"/>
+    <inertia ixx="0.002977" ixy="-0.0" ixz="-0.0" iyy="0.005576" iyz="-0.0" izz="0.002977"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.062709 0.086656 -0.070476"/>
+    <geometry>
+      <mesh filename="package://covid_bot_description/meshes/Rim3.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.062709 0.086656 -0.070476"/>
+    <geometry>
+      <mesh filename="package://covid_bot_description/meshes/Rim3.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="chasis">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.06862382106616449 0.0561668106453105 -0.02986808531008138"/>
+    <mass value="4.610266189991951"/>
+    <inertia ixx="0.015987" ixy="7e-06" ixz="-6.3e-05" iyy="0.034656" iyz="0.0" izz="0.048227"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.080209 0.030296 -0.110696"/>
+    <geometry>
+      <mesh filename="package://covid_bot_description/meshes/chasis.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.080209 0.030296 -0.110696"/>
+    <geometry>
+      <mesh filename="package://covid_bot_description/meshes/chasis.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Motor_ECT_spacer_3_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.0174998604039778 0.01858065559360471 -0.005321827053524603"/>
+    <mass value="1.499857687241455"/>
+    <inertia ixx="0.002027" ixy="0.0" ixz="-0.0" iyy="0.002073" iyz="4.4e-05" izz="0.000395"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.205209 -0.082104 -0.110696"/>
+    <geometry>
+      <mesh filename="package://covid_bot_description/meshes/Motor_ECT_spacer_3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="gold"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.205209 -0.082104 -0.110696"/>
+    <geometry>
+      <mesh filename="package://covid_bot_description/meshes/Motor_ECT_spacer_3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Motor_ECT_spacer_4_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.017499860403977052 0.018580655593605083 -0.005321827053524353"/>
+    <mass value="1.4998576872414526"/>
+    <inertia ixx="0.002027" ixy="0.0" ixz="-0.0" iyy="0.002073" iyz="4.4e-05" izz="0.000395"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.045209 -0.082104 -0.110696"/>
+    <geometry>
+      <mesh filename="package://covid_bot_description/meshes/Motor_ECT_spacer_4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="gold"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.045209 -0.082104 -0.110696"/>
+    <geometry>
+      <mesh filename="package://covid_bot_description/meshes/Motor_ECT_spacer_4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Motor_ECT_spacer_2_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.017500139596012848 -0.018580677594676135 -0.0053218270535249496"/>
+    <mass value="1.499857687241462"/>
+    <inertia ixx="0.002027" ixy="0.0" ixz="0.0" iyy="0.002073" iyz="-4.4e-05" izz="0.000395"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.240209 0.030296 -0.110696"/>
+    <geometry>
+      <mesh filename="package://covid_bot_description/meshes/Motor_ECT_spacer_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="gold"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.240209 0.030296 -0.110696"/>
+    <geometry>
+      <mesh filename="package://covid_bot_description/meshes/Motor_ECT_spacer_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Rim2">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-1.3958867048358137e-07 -0.004690476967580209 -4.284573798807312e-07"/>
+    <mass value="1.6591218488748476"/>
+    <inertia ixx="0.002977" ixy="0.0" ixz="0.0" iyy="0.005576" iyz="-0.0" izz="0.002977"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.062709 -0.138464 -0.070476"/>
+    <geometry>
+      <mesh filename="package://covid_bot_description/meshes/Rim2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.062709 -0.138464 -0.070476"/>
+    <geometry>
+      <mesh filename="package://covid_bot_description/meshes/Rim2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Rim1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-1.3960336500695725e-07 -0.004690476967580431 -4.2844414226139715e-07"/>
+    <mass value="1.6591218488748436"/>
+    <inertia ixx="0.002977" ixy="-0.0" ixz="0.0" iyy="0.005576" iyz="0.0" izz="0.002977"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.222709 -0.138464 -0.070476"/>
+    <geometry>
+      <mesh filename="package://covid_bot_description/meshes/Rim1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.222709 -0.138464 -0.070476"/>
+    <geometry>
+      <mesh filename="package://covid_bot_description/meshes/Rim1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Rim4">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-1.396033653955353e-07 0.004690454966509189 -4.2845738046359827e-07"/>
+    <mass value="1.6591218488748485"/>
+    <inertia ixx="0.002977" ixy="0.0" ixz="-0.0" iyy="0.005576" iyz="0.0" izz="0.002977"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.222709 0.086656 -0.070476"/>
+    <geometry>
+      <mesh filename="package://covid_bot_description/meshes/Rim4.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.222709 0.086656 -0.070476"/>
+    <geometry>
+      <mesh filename="package://covid_bot_description/meshes/Rim4.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Electronic_box">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.008869805769423228 1.668395218468871e-05 0.055347558353479"/>
+    <mass value="3.3809697547617232"/>
+    <inertia ixx="0.008295" ixy="-1e-06" ixz="-0.001044" iyy="0.020171" iyz="-3e-06" izz="0.019301"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.141709 -0.025904 -0.070476"/>
+    <geometry>
+      <mesh filename="package://covid_bot_description/meshes/Electronic_box.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="grey"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.141709 -0.025904 -0.070476"/>
+    <geometry>
+      <mesh filename="package://covid_bot_description/meshes/Electronic_box.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="sanitizer">
+  <inertial>
+    <origin rpy="0 0 0" xyz="8.042726419479895e-06 -3.5299895341858734e-07 0.020028156305299027"/>
+    <mass value="0.01111299972458993"/>
+    <inertia ixx="2e-06" ixy="-0.0" ixz="-0.0" iyy="2e-06" iyz="0.0" izz="0.0"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.11045 -0.02694 -0.179476"/>
+    <geometry>
+      <mesh filename="package://covid_bot_description/meshes/sanitizer.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="blue"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.11045 -0.02694 -0.179476"/>
+    <geometry>
+      <mesh filename="package://covid_bot_description/meshes/sanitizer.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="bottle">
+  <inertial>
+    <origin rpy="0 0 0" xyz="4.005624760353155e-05 -2.919174205938055e-05 0.032560325649705124"/>
+    <mass value="0.024395997371245096"/>
+    <inertia ixx="1.3e-05" ixy="-0.0" ixz="-0.0" iyy="1.3e-05" iyz="-0.0" izz="3e-06"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.189713 -0.026673 -0.179476"/>
+    <geometry>
+      <mesh filename="package://covid_bot_description/meshes/bottle.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="green"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.189713 -0.026673 -0.179476"/>
+    <geometry>
+      <mesh filename="package://covid_bot_description/meshes/bottle.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="top_part_bottle">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.001045311241295671 0.0029279449369936338 0.013437173406561032"/>
+    <mass value="0.004147515852623046"/>
+    <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="-0.0" izz="0.0"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.189753 -0.026644 -0.256723"/>
+    <geometry>
+      <mesh filename="package://covid_bot_description/meshes/top_part_bottle.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="green"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.189753 -0.026644 -0.256723"/>
+    <geometry>
+      <mesh filename="package://covid_bot_description/meshes/top_part_bottle.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="laser_scanner">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-1.0132251909711343e-07 1.3850087063338457e-07 0.0037495715492386478"/>
+    <mass value="0.014552179145405065"/>
+    <inertia ixx="0.0" ixy="-0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.275029 -0.025502 -0.090476"/>
+    <geometry>
+      <mesh filename="package://covid_bot_description/meshes/laser_scanner.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.275029 -0.025502 -0.090476"/>
+    <geometry>
+      <mesh filename="package://covid_bot_description/meshes/laser_scanner.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="camera_link">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.0020867765935139726 0.0005838328913577995 -9.890544799071033e-05"/>
+    <mass value="0.022757185543042586"/>
+    <inertia ixx="4e-06" ixy="-0.0" ixz="0.0" iyy="2e-06" iyz="-0.0" izz="2e-06"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.238709 -0.025904 -0.110476"/>
+    <geometry>
+      <mesh filename="package://covid_bot_description/meshes/camera_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="white"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.238709 -0.025904 -0.110476"/>
+    <geometry>
+      <mesh filename="package://covid_bot_description/meshes/camera_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<!--<link name="world" />
+<joint name="world_to_base_link=" type="fixed">
+  <parent link="world"/>
+  <child link="base_link"/>
+</joint> remove this -->
+
+<joint name="right_back_joint" type="continuous">
+  <origin rpy="0 0 0" xyz="0.062709 -0.086656 0.070476"/>
+  <parent link="base_link"/>
+  <child link="Rim3"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Rigid25" type="fixed">
+  <origin rpy="0 0 0" xyz="0.080209 -0.030296 0.110696"/>
+  <parent link="base_link"/>
+  <child link="chasis"/>
+</joint>
+
+<joint name="Rigid29" type="fixed">
+  <origin rpy="0 0 0" xyz="0.125 0.1124 0.0"/>
+  <parent link="chasis"/>
+  <child link="Motor_ECT_spacer_3_1"/>
+</joint>
+
+<joint name="Rigid30" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.035 0.1124 0.0"/>
+  <parent link="chasis"/>
+  <child link="Motor_ECT_spacer_4_1"/>
+</joint>
+
+<joint name="Rigid31" type="fixed">
+  <origin rpy="0 0 0" xyz="0.16 0.0 0.0"/>
+  <parent link="chasis"/>
+  <child link="Motor_ECT_spacer_2_1"/>
+</joint>
+
+<joint name="left_back_joint" type="continuous">
+  <origin rpy="0 0 0" xyz="0.0175 0.05636 -0.04022"/>
+  <parent link="Motor_ECT_spacer_4_1"/>
+  <child link="Rim2"/>
+  <axis xyz="0.0 -1.0 -0.0"/>
+</joint>
+
+<joint name="left_front_joint" type="continuous">
+  <origin rpy="0 0 0" xyz="0.0175 0.05636 -0.04022"/>
+  <parent link="Motor_ECT_spacer_3_1"/>
+  <child link="Rim1"/>
+  <axis xyz="0.0 -1.0 -0.0"/>
+</joint>
+
+<joint name="right_front_joint" type="continuous">
+  <origin rpy="0 0 0" xyz="-0.0175 -0.05636 -0.04022"/>
+  <parent link="Motor_ECT_spacer_2_1"/>
+  <child link="Rim4"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Rigid35" type="fixed">
+  <origin rpy="0 0 0" xyz="0.0615 0.0562 -0.04022"/>
+  <parent link="chasis"/>
+  <child link="Electronic_box"/>
+</joint>
+
+<joint name="Rev36" type="continuous">
+  <origin rpy="0 0 0" xyz="-0.031259 0.001036 0.109"/>
+  <parent link="Electronic_box"/>
+  <child link="sanitizer"/>
+  <axis xyz="0.0 -0.0 1.0"/>
+</joint>
+
+<joint name="Rev37" type="continuous">
+  <origin rpy="0 0 0" xyz="0.048004 0.000769 0.109"/>
+  <parent link="Electronic_box"/>
+  <child link="bottle"/>
+  <axis xyz="0.0 -0.0 1.0"/>
+</joint>
+
+<joint name="Rev38" type="continuous">
+  <origin rpy="0 0 0" xyz="4e-05 -2.9e-05 0.077247"/>
+  <parent link="bottle"/>
+  <child link="top_part_bottle"/>
+  <axis xyz="0.0 -0.0 1.0"/>
+</joint>
+
+<joint name="lidar_to_chasis" type="continuous">
+  <origin rpy="0 0 0" xyz="0.19482 0.055798 -0.02022"/>
+  <parent link="chasis"/>
+  <child link="laser_scanner"/>
+  <axis xyz="0.0 -0.0 1.0"/>
+</joint>
+
+<joint name="camera_joint" type="fixed">
+  <origin rpy="0 0 0" xyz="0.097 0.0 0.04"/>
+  <parent link="Electronic_box"/>
+  <child link="camera_link"/>
+</joint>
+
+<joint name="camera_rgb_joint" type="fixed">
+  <origin xyz="0.003 0.011 0.009" rpy="0 0 0"/>
+  <parent link="camera_link"/>
+  <child link="camera_rgb_frame"/>
+</joint>
+<link name="camera_rgb_frame"/>
+
+<joint name="camera_rgb_optical_joint" type="fixed">
+  <origin xyz="0 0 0" rpy="-1.57 0 -1.57"/>
+  <parent link="camera_rgb_frame"/>
+  <child link="camera_rgb_optical_frame"/>
+</joint>
+<link name="camera_rgb_optical_frame"/>
+
+</robot>
